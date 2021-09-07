@@ -1,0 +1,113 @@
+create database db;
+
+use db;
+
+------------------------------------------------------
+Answer 1.
+
+Create table mentors(mentor_id varchar(30) primary key,mentor_name varchar(50));
+
+Create table users(user_id varchar(30) primary key,user_name varchar(50),mentor_id varchar(30),foreign key(mentor_id) references mentors(mentor_id));
+
+Create table codekata(problems int(10),user_id varchar(30), foreign key(user_id) references users(user_id));
+
+Create table attendance(days_present int(10),user_id varchar(30), foreign key(user_id) references users(user_id));
+
+Create table courses(course_id varchar(30) primary key,course_name varchar(50),mentor_id varchar(30),foreign key(mentor_id) references mentors(mentor_id));
+
+Create table topics(topic_id varchar(30) primary key,topic_name varchar(50),course_id varchar(30),foreign key(course_id) references courses(course_id));
+
+Create table tasks(user_id varchar(30),foreign key(user_id) references users(user_id),topic_id varchar(30),foreign key(topic_id) references topics(topic_id));
+
+Create table company_drives(company_id varchar(30) primary key,company_name varchar(50),user_id varchar(30),foreign key(user_id) references users(user_id));
+
+Create table students_activated_courses(course_id varchar(30),foreign key(course_id) references courses(course_id),user_id varcha(30),
+foreign key(user_id) references users(user_id));
+
+--------------------------------------------------
+Answer 2.
+
+Insert into mentors values(5,'Arya');
+Insert into mentors values(2,'Arnav');
+Insert into mentors values(1,'Manvendra');
+Insert into mentors values(3,'Ankita');
+Insert into mentors values(4,'Divya');
+
+
+Insert into users values(5,'Ankita',2);
+Insert into users values(2,'Priyansh',3);
+Insert into users values(3,'Ashutosh',2);
+Insert into users values(1,'Riya',1);
+Insert into users values(4,'Tamali',3);
+
+
+Insert into codekata values(69,4);
+Insert into codekata values(80,3);
+Insert into codekata values(35,1);
+Insert into codekata values(40,5);
+Insert into codekata values(55,2);
+
+
+Insert into attendance values(45,5);
+Insert into attendance values(31,4);
+Insert into attendance values(29,3);
+Insert into attendance values(22,1);
+Insert into attendance values(50,2);
+
+
+Insert into courses values(5,'C',1);
+Insert into courses values(3,'Python',1);
+Insert into courses values(2,'Machine Learning',3);
+Insert into courses values(1,'Computer Vision',4);
+Insert into courses values(4,'Deep Learning',2);
+
+
+Insert into topics values(4,'Neural Network',4);
+Insert into topics values(3,'Computer Vision',1);
+Insert into topics values(1,'List',C);
+Insert into topics values(2,'Structure',5);
+Insert into topics values(5,'SVM',2;
+
+
+Insert into tasks values(5,3);
+Insert into tasks values(4,3);
+Insert into tasks values(3,1);
+Insert into tasks values(2,5);
+Insert into tasks values(1,4);
+
+
+Insert into company_drives values(1,'Chubb',1);
+Insert into company_drives values(3,'Microsoft',2);
+Insert into company_drives values(4,'Goldman Sacchs',5);
+Insert into company_drives values(5,'Flipkart',5);
+Insert into company_drives values(2,'Deloitte',2);
+
+Insert into students_activated_courses values(1,5);
+Insert into students_activated_courses values(2,4);
+Insert into students_activated_courses values(3,3);
+Insert into students_activated_courses values(4,2);
+Insert into students_activated_courses values(5,1);
+
+--------------------------------------------------------
+
+Answer 3. 
+
+SELECT SUM(problems) FROM codekata;
+
+-------------------------------------------------------
+
+Answer 4. 
+
+SELECT user_id,count(company_id) FROM company_drives GROUP BY user_id;
+
+-------------------------------------------------------
+
+Answer 6. 
+
+SELECT mentor_name FROM mentors;
+
+-------------------------------------------------------
+
+Answer 7.
+
+SELECT mentor_id,count(user_id) FROM users GROUP BY mentor_id;
