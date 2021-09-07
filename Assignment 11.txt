@@ -21,7 +21,7 @@ Create table tasks(user_id varchar(30),foreign key(user_id) references users(use
 
 Create table company_drives(company_id varchar(30) primary key,company_name varchar(50),user_id varchar(30),foreign key(user_id) references users(user_id));
 
-Create table students_activated_courses(course_id varchar(30),foreign key(course_id) references courses(course_id),user_id varcha(30),
+Create table students_activated_courses(course_id varchar(30),foreign key(course_id) references courses(course_id),user_id varchar(30),
 foreign key(user_id) references users(user_id));
 
 --------------------------------------------------
@@ -32,6 +32,8 @@ Insert into mentors values(2,'Arnav');
 Insert into mentors values(1,'Manvendra');
 Insert into mentors values(3,'Ankita');
 Insert into mentors values(4,'Divya');
+Insert into mentors values(6,'Shairy');
+Insert into mentors values(7,'Simran');
 
 
 Insert into users values(5,'Ankita',2);
@@ -39,6 +41,10 @@ Insert into users values(2,'Priyansh',3);
 Insert into users values(3,'Ashutosh',2);
 Insert into users values(1,'Riya',1);
 Insert into users values(4,'Tamali',3);
+Insert into users values(6,'Reyan',3);
+Insert into users values(7,'Mahira',5);
+Insert into users values(8,'Vishesh',6);
+
 
 
 Insert into codekata values(69,4);
@@ -64,9 +70,9 @@ Insert into courses values(4,'Deep Learning',2);
 
 Insert into topics values(4,'Neural Network',4);
 Insert into topics values(3,'Computer Vision',1);
-Insert into topics values(1,'List',C);
+Insert into topics values(1,'List',3);
 Insert into topics values(2,'Structure',5);
-Insert into topics values(5,'SVM',2;
+Insert into topics values(5,'SVM',2);
 
 
 Insert into tasks values(5,3);
