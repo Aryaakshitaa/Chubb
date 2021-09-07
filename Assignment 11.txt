@@ -108,6 +108,12 @@ SELECT user_id,count(company_id) FROM company_drives GROUP BY user_id;
 
 -------------------------------------------------------
 
+Answer 5.
+
+SELECT s.user_id,c.course_name FROM students_activated_courses as s inner join courses as c on s.course_id = c.course_id GROUP BY c.course_name;
+
+-------------------------------------------------------
+
 Answer 6. 
 
 SELECT mentor_name FROM mentors;
